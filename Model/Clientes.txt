@@ -1,0 +1,11 @@
+11111111,Juan,Rosales,Lugo,Calle 1,361-1111
+22222222,Roberto,Perez,Suarez,Calle 2,232-2222
+33333333,Luis,Rodriguez,Benavente,Calle 3,778-3333
+44444444,Andrea,Luna,Zorrilla,Calle 4,351-4444
+55555555,Ruth,Corrales,Rivera,Calle 5,491-5555
+66666666,Jorge,Benavides,Hurtado,Calle 6,534-7777
+77777777,Luna,Rosales,Morales,Calle 7,435-9876
+88888888,Alicia,Clavero,Torres,Calle 8,232-6534
+76909517,Cristhian,Gonzales,Sandoval,Piura,784596
+75455411,Kevin,Valdez,Vargas,Lima,981337311
+1234567,Testing,Testing,Testing,Testing,123456789

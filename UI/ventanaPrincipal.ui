@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>516</width>
+    <height>410</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>516</width>
+    <height>410</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>516</width>
+    <height>410</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Inter</family>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Sistema de Ventas V1.0</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>516</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuRegistro">
+    <property name="font">
+     <font>
+      <family>Inter</family>
+     </font>
+    </property>
+    <property name="title">
+     <string>Registro</string>
+    </property>
+    <addaction name="actionClientes"/>
+    <addaction name="actionEmpleados"/>
+    <addaction name="actionProductos"/>
+    <addaction name="actionProveedor"/>
+   </widget>
+   <widget class="QMenu" name="menuComprobantes">
+    <property name="font">
+     <font>
+      <family>Inter</family>
+     </font>
+    </property>
+    <property name="title">
+     <string>Comprobantes</string>
+    </property>
+    <addaction name="actionVista_previa"/>
+   </widget>
+   <widget class="QMenu" name="menuAcerca_de">
+    <property name="font">
+     <font>
+      <family>Inter</family>
+     </font>
+    </property>
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionAcerca_de"/>
+   </widget>
+   <addaction name="menuRegistro"/>
+   <addaction name="menuComprobantes"/>
+   <addaction name="menuAcerca_de"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionComprobantes">
+   <property name="text">
+    <string>Comprobantes</string>
+   </property>
+  </action>
+  <action name="actionClientes">
+   <property name="icon">
+    <iconset>
+     <normaloff>../View/images/customer.png</normaloff>../View/images/customer.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clientes</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+    </font>
+   </property>
+  </action>
+  <action name="actionEmpleados">
+   <property name="icon">
+    <iconset>
+     <normaloff>../View/images/employee.png</normaloff>../View/images/employee.png</iconset>
+   </property>
+   <property name="text">
+    <string>Empleados</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+    </font>
+   </property>
+  </action>
+  <action name="actionProductos">
+   <property name="icon">
+    <iconset>
+     <normaloff>../View/images/producto.png</normaloff>../View/images/producto.png</iconset>
+   </property>
+   <property name="text">
+    <string>Productos</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+    </font>
+   </property>
+  </action>
+  <action name="actionProveedor">
+   <property name="icon">
+    <iconset>
+     <normaloff>../View/images/proveedor.png</normaloff>../View/images/proveedor.png</iconset>
+   </property>
+   <property name="text">
+    <string>Proveedor</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+    </font>
+   </property>
+  </action>
+  <action name="actionVista_previa">
+   <property name="text">
+    <string>Vista previa</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+    </font>
+   </property>
+  </action>
+  <action name="actionAcerca_de">
+   <property name="text">
+    <string>Acerca de</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+    </font>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
