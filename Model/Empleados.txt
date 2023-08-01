@@ -7,3 +7,4 @@
 77777777,Luna,Rosales,Morales,Calle 7,435-9876
 88888888,Alicia,Clavero,Torres,Calle 8,232-6534
 76909517,Cristhian,Gonzales,Sandoval,Piura,784596
+75455411,Kevin,Valdez,Vargas,Lima,981337311

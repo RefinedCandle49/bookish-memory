@@ -44,7 +44,7 @@ class VentanaClientes(QtWidgets.QMainWindow):
 
     def grabar(self):
         try:
-            pos = aCli.buscarCliente(self.obtenerDNI())
+            pos = aCli.buscarCliente(self.obtenerDni())
             objCli = aCli.devolverCliente(pos)
             objCli.setNombresCliente(self.obtenerNombres())
             objCli.setApellidoPaternoCliente(self.obtenerApellidoPaterno())
