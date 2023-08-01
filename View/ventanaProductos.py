@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QWidget
-from Controller.Mantenimiento_Productos import *
+from Controller.Mantenimiento_Productos import ArregloProductos
+from Controller.Controller_Producto import *
 
 aPro = ArregloProductos()
 
@@ -8,9 +9,28 @@ class VentanaProductos(QtWidgets.QMainWindow):
     def __init__(self, parent = None):
         super(VentanaProductos, self).__init__(parent)
         uic.loadUi("UI/ventanaProductos.ui", self)
+        self.btnRegistrar.clicked.connect(self.registrar)
         self.listar()
         self.show()
 
+    def obtenerCodigo(self):
+        return self.txtCodigo.text()
+    def obtenerNombre(self):
+        return self.txtNombre.text()
+    def obtenerDescripcion(self):
+        return self.txtDescripcion.text()
+    def obtenerStockMinimo(self):
+        return self.txtStockMinimo.text()
+    def obtenerStockActual(self):
+        return self.txtStockActual.text()
+    def obtenerPrecioCosto(self):
+        return self.txtPrecioCosto.text()
+    def obtenerPrecioVenta(self):
+        return self.txtPrecioVenta.text()
+    def obtenerProveedor(self):
+        return self.cboProveedor.currentText()
+    def obtenerAlmacen(self):
+        return self.cboAlmacen.currentText()
 
         # Procesos
     def listar(self):
@@ -27,3 +47,28 @@ class VentanaProductos(QtWidgets.QMainWindow):
             self.tblProductos.setItem(i, 6, QtWidgets.QTableWidgetItem(aPro.devolverProducto(i).getPrecioVenta()))
             self.tblProductos.setItem(i, 7, QtWidgets.QTableWidgetItem(aPro.devolverProducto(i).getProveedor()))
             self.tblProductos.setItem(i, 8, QtWidgets.QTableWidgetItem(aPro.devolverProducto(i).getAlmacen()))
+
+    def grabar(self):
+        try:
+            pos = aPro.buscarProducto(self.obtenerCodigo())
+            objPro = aPro.devolverProducto(pos)
+            objPro = setCodigo(self.obtenerCodigo())
+            objPro = setNombre(self.obtenerNombre())
+            objPro = setDescripcion(self.obtenerDescripcion())
+            objPro = setStockMinimo(self.obtenerStockMinimo())
+            objPro = setStockActual(self.obtenerStockActual())
+            objPro = setPrecioCosto(self.obtenerPrecioCosto())
+            objPro = setPrecioVenta(self.obtenerPrecioVenta())
+            objPro = setProveedor(self.obtenerProveedor())
+            objPro = setAlmacen(self.obtenerAlmacen())
+            aPro.grabar()
+            self.listar()
+        except:
+            QtWidgets.QMessageBox.information(self, "Registrar Producto", "Ha ocurrido un error al registrar el producto", QtWidgets.QMessageBox.Ok)
+
+    def registrar(self):
+        objPro = Producto(self.obtenerCodigo(), self.obtenerNombre(), self.obtenerDescripcion(), self.obtenerStockMinimo(), self.obtenerStockActual(), self.obtenerPrecioCosto(), self.obtenerPrecioVenta(), self.obtenerProveedor(), self.obtenerAlmacen())
+        aPro.adicionaProducto(objPro)
+        aPro.grabar()
+        self.listar()
+        QtWidgets.QMessageBox.information(self, "Registrar Producto", "Producto registrado con con éxito", QtWidgets.QMessageBox.Ok)

@@ -470,6 +470,16 @@ border: 1px solid  black;
       <pointsize>12</pointsize>
      </font>
     </property>
+    <item>
+     <property name="text">
+      <string>DICONSAC</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>MATUTE</string>
+     </property>
+    </item>
    </widget>
    <widget class="QComboBox" name="cboAlmacen">
     <property name="geometry">
@@ -486,6 +496,16 @@ border: 1px solid  black;
       <pointsize>12</pointsize>
      </font>
     </property>
+    <item>
+     <property name="text">
+      <string>SUR</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>NORTE</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLabel" name="lblProveedor">
     <property name="geometry">

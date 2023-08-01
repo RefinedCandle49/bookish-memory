@@ -1,1 +1,3 @@
-40002, Ladrillo, Padereta, 100, 5000, 49.99, 59.99, DICONSAC, SUR
+40002, Ladrillo, Padereta, 100, 5000, 49.99, 59.99, DICONSAC,SUR
+40003,Microcemento, Plancha de microcemento, 1, 500, 40, 44.99, MATUTE,NORTE
+40004,Rotomartillo,Herramienta eléctrica,1,18,799.99,899.99,DICONSAC,SUR

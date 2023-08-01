@@ -55,5 +55,5 @@ class ArregloProductos:
     def grabar(self):
         archivo = open("Model/Productos.txt", "w+", encoding= "utf-8")
         for i in range(self.tamañoArregloProducto()):
-            archivo.write(str(self.devolverProducto(i).getCodigo()) + "," + str(self.devolverProducto(i).getNombre()) + "," + str(self.devolverProducto(i).getDescripcion()) + "," + str(self.devolverProducto(i).getStockMinimo()) + "," + str(self.devolverProducto(i).getStockActual()) + "," + str(self.devolverProducto(i).getPrecioCosto()) + str(self.devolverProducto(i).getPrecioVenta()) + "," +str(self.devolverProducto(i).getProveedor()) + "," +str(self.devolverProducto(i).getAlmacen()) + "\n")
+            archivo.write(str(self.devolverProducto(i).getCodigo()) + "," + str(self.devolverProducto(i).getNombre()) + "," + str(self.devolverProducto(i).getDescripcion()) + "," + str(self.devolverProducto(i).getStockMinimo()) + "," + str(self.devolverProducto(i).getStockActual()) + "," + str(self.devolverProducto(i).getPrecioCosto()) + "," +str(self.devolverProducto(i).getPrecioVenta()) + "," +str(self.devolverProducto(i).getProveedor()) + "," +str(self.devolverProducto(i).getAlmacen()) + "\n")
         archivo.close()
