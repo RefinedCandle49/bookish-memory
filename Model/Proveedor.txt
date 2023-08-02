@@ -1,1 +1,2 @@
-75455411, Sociedad Anónima cerrada (S.A.C.), 2929496, Surco, A
+75455411, Sociedad Anónima cerrada (S.A.C.), 2929496, Surco,A
+75455411,WAZA,981337311,Lima,A

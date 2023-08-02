@@ -59,4 +59,4 @@ class VentanaEmpleados(QtWidgets.QMainWindow):
         aEmp.adicionaEmpleado(objEmp)
         aEmp.grabar()
         self.ListarDatos()
-        QtWidgets.QMessageBox.information(self, "Registrar Empleado", "Empleado registracon con éxito", QtWidgets.QMessageBox.Ok)
+        QtWidgets.QMessageBox.information(self, "Registrar Empleado", "Empleado registrado con con éxito", QtWidgets.QMessageBox.Ok)
