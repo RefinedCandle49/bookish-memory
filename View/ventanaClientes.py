@@ -12,6 +12,7 @@ class VentanaClientes(QtWidgets.QMainWindow):
         uic.loadUi("UI/ventanaClientes.ui", self)
         # self.btnListar.clicked.connect(self.ListarDatos)
         self.btnRegistrar.clicked.connect(self.registrar)
+        self.btnEliminar.clicked.connect(self.eliminar)
         self.listar()
         self.show()
 
@@ -62,3 +63,18 @@ class VentanaClientes(QtWidgets.QMainWindow):
         aCli.grabar()
         self.listar()
         QtWidgets.QMessageBox.information(self, "Registrar Cliente", "Cliente registracon con éxito", QtWidgets.QMessageBox.Ok)
+
+    def eliminar(self):
+        if aCli.tamañoArregloCliente() == 0:
+            QtWidgets.QMessageBox.information(self, "Eliminar Cliente", "No existen clientes a eliminar", QtWidgets.QMessageBox.Ok)
+        else:
+            fila = self.tblClientes.selectedItems()
+            if fila:
+                indiceFila = fila[0].row()
+                dni = self.tblClientes.item(indiceFila, 0).text()
+                pos = aCli.buscarCliente(dni)
+                aCli.eliminarCliente(pos)
+                aCli.grabar()
+                self.listar()
+            else:
+                QtWidgets.QMessageBox.information(self, "Eliminar Cliente", "Ningún cliente seleccionado", QtWidgets.QMessageBox.Ok)
