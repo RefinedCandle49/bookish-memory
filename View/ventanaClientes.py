@@ -13,6 +13,8 @@ class VentanaClientes(QtWidgets.QMainWindow):
         # self.btnListar.clicked.connect(self.ListarDatos)
         self.btnRegistrar.clicked.connect(self.registrar)
         self.btnEliminar.clicked.connect(self.eliminar)
+        self.btnConsultar.clicked.connect(self.modificar)
+        self.btnActualizar.clicked.connect(self.grabar)
         self.listar()
         self.show()
 
@@ -78,3 +80,18 @@ class VentanaClientes(QtWidgets.QMainWindow):
                 self.listar()
             else:
                 QtWidgets.QMessageBox.information(self, "Eliminar Cliente", "Ningún cliente seleccionado", QtWidgets.QMessageBox.Ok)
+
+    def modificar(self):
+        if aCli.tamañoArregloCliente() == 0:
+            QtWidgets.QMessageBox.information(self, "Modificar Cliente", "No se encontraron registros para el DNI ingresado", QtWidgets.QMessageBox.Ok)
+        else:
+            dni, _ = QtWidgets.QInputDialog.getText(self, "Buscar Clientes", "Ingrese el DNI a modificiar")
+            pos = aCli.buscarCliente(dni)
+            if pos != -1:
+                objCliente = aCli.devolverCliente(pos)
+                self.txtDni.setText(objCliente.getDniCliente())
+                self.txtNombres.setText(objCliente.getNombresCliente())
+                self.txtApellidoPaterno.setText(objCliente.getApellidoPaternoCliente())
+                self.txtApellidoMaterno.setText(objCliente.getApellidoMaternoCliente())
+                self.txtDireccion.setText(objCliente.getDireccionCliente())
+                self.txtTelefono.setText(objCliente.getTelefonoCliente())
