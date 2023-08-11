@@ -11,6 +11,7 @@ class VentanaProveedores(QtWidgets.QMainWindow):
         super(VentanaProveedores, self).__init__(parent)
         uic.loadUi("UI/ventanaProveedores.ui", self)
         self.btnRegistrar.clicked.connect(self.registrar)
+        self.btnEliminar.clicked.connect(self.eliminar)
         self.listar()
         self.show()
 
@@ -56,3 +57,18 @@ class VentanaProveedores(QtWidgets.QMainWindow):
         aProv.grabar()
         self.listar()
         QtWidgets.QMessageBox.information(self, "Registrar Proveedor", "Proveedor registrado con con éxito", QtWidgets.QMessageBox.Ok)
+
+    def eliminar(self):
+        if aProv.tamañoArregloProveedor() == 0:
+            QtWidgets.QMessageBox.information(self, "Eliminar proveedor", "No existen proveedores a eliminar", QtWidgets.QMessageBox.Ok)
+        else:
+            fila = self.tblProveedores.selectedItems()
+            if fila:
+                indiceFila = fila[0].row()
+                dni = self.tblProveedores.item(indiceFila, 0).text()
+                pos = aProv.buscarProveedor(dni)
+                aProv.eliminarProveedor(pos)
+                aProv.grabar()
+                self.listar()
+            else:
+                QtWidgets.QMessageBox.information(self, "Eliminar Proveedor", "Ningún proveedor seleccionado", QtWidgets.QMessageBox.Ok)

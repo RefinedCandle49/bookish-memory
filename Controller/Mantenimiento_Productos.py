@@ -19,7 +19,7 @@ class ArregloProductos:
         for i in range(self.tamañoArregloProducto()):
             if codigo == self.dataProductos[i].getCodigo():
                 return i
-        return -1
+        return 1
 
     def eliminarProducto(self, indice):
         del(self.dataProductos[indice])

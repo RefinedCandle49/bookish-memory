@@ -10,6 +10,7 @@ class VentanaEmpleados(QtWidgets.QMainWindow):
         super(VentanaEmpleados, self).__init__(parent)
         uic.loadUi("UI/ventanaEmpleados.ui", self)
         self.btnRegistrar.clicked.connect(self.registrar)
+        self.btnEliminar.clicked.connect(self.eliminar)
         self.ListarDatos()
         self.show()
 
@@ -60,3 +61,18 @@ class VentanaEmpleados(QtWidgets.QMainWindow):
         aEmp.grabar()
         self.ListarDatos()
         QtWidgets.QMessageBox.information(self, "Registrar Empleado", "Empleado registrado con con éxito", QtWidgets.QMessageBox.Ok)
+
+    def eliminar(self):
+        if aEmp.tamañoArregloEmpleado() == 0:
+            QtWidgets.QMessageBox.information(self, "Eliminar Empleado", "No existen empleados a eliminar", QtWidgets.QMessageBox.Ok)
+        else:
+            fila = self.tblEmpleados.selectedItems()
+            if fila:
+                indiceFila = fila[0].row()
+                dni = self.tblEmpleados.item(indiceFila, 0).text()
+                pos = aEmp.buscarEmpleado(dni)
+                aEmp.eliminarEmpleado(pos)
+                aEmp.grabar()
+                self.ListarDatos()
+            else:
+                QtWidgets.QMessageBox.information(self, "Eliminar Empleado", "Ningún empleado seleccionado", QtWidgets.QMessageBox.Ok)

@@ -10,6 +10,7 @@ class VentanaProductos(QtWidgets.QMainWindow):
         super(VentanaProductos, self).__init__(parent)
         uic.loadUi("UI/ventanaProductos.ui", self)
         self.btnRegistrar.clicked.connect(self.registrar)
+        self.btnEliminar.clicked.connect(self.eliminar)
         self.listar()
         self.show()
 
@@ -72,3 +73,19 @@ class VentanaProductos(QtWidgets.QMainWindow):
         aPro.grabar()
         self.listar()
         QtWidgets.QMessageBox.information(self, "Registrar Producto", "Producto registrado con con éxito", QtWidgets.QMessageBox.Ok)
+
+    def eliminar(self):
+        if aPro.tamañoArregloProducto() == 0:
+            QtWidgets.QMessageBox.information(self, "Eliminar Cliente", "No existen productos a eliminar",
+                                              QtWidgets.QMessageBox.Ok)
+        else:
+            fila = self.tblProductos.selectedItems()
+            if fila:
+                indiceFila = fila[0].row()
+                codigo = self.tblProductos.item(indiceFila, 0).text()
+                pos = aPro.buscarProducto(codigo)
+                aPro.eliminarProducto(pos)
+                aPro.grabar()
+                self.listar()
+            else:
+                QtWidgets.QMessageBox.information(self, "Eliminar Producto", "Ningún producto seleccionado", QtWidgets.QMessageBox.Ok)
