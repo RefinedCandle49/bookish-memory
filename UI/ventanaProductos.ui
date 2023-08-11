@@ -236,25 +236,6 @@ border: 1px solid  black;
      <string>Registrar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnModificar">
-    <property name="geometry">
-     <rect>
-      <x>990</x>
-      <y>130</y>
-      <width>131</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Inter</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Modificar</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btnListar">
     <property name="geometry">
      <rect>
@@ -644,6 +625,25 @@ border: 1px solid  black;
       </font>
      </property>
     </column>
+   </widget>
+   <widget class="QPushButton" name="btnActualizar">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>130</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Inter</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Actualizar</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

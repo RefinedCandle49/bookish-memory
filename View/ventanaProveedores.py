@@ -12,6 +12,8 @@ class VentanaProveedores(QtWidgets.QMainWindow):
         uic.loadUi("UI/ventanaProveedores.ui", self)
         self.btnRegistrar.clicked.connect(self.registrar)
         self.btnEliminar.clicked.connect(self.eliminar)
+        self.btnConsultar.clicked.connect(self.modificar)
+        self.btnActualizar.clicked.connect(self.grabar)
         self.listar()
         self.show()
 
@@ -72,3 +74,19 @@ class VentanaProveedores(QtWidgets.QMainWindow):
                 self.listar()
             else:
                 QtWidgets.QMessageBox.information(self, "Eliminar Proveedor", "Ningún proveedor seleccionado", QtWidgets.QMessageBox.Ok)
+
+    def modificar(self):
+        if aProv.tamañoArregloProveedor() == 0:
+            QtWidgets.QMessageBox.information(self, "Modificar Proveedor",
+                                              "No se encontraron registros para el DNI ingresado",
+                                              QtWidgets.QMessageBox.Ok)
+        else:
+            dni, _ = QtWidgets.QInputDialog.getText(self, "Buscar Proveedores", "Ingrese el DNI a modificar")
+            pos = aProv.buscarProveedor(dni)
+            if pos != -1:
+                objProveedor = aProv.devolverProveedor(pos)
+                self.txtDni.setText(objProveedor.getDniProveedor())
+                self.txtRazonSocial.setText(objProveedor.getRazonSocial())
+                self.txtTelefono.setText(objProveedor.getTelefono())
+                self.txtDireccion.setText(objProveedor.getDireccion())
+                self.cboCategoria.setCurrentText(objProveedor.getCategoria())

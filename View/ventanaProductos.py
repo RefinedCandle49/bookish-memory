@@ -11,6 +11,8 @@ class VentanaProductos(QtWidgets.QMainWindow):
         uic.loadUi("UI/ventanaProductos.ui", self)
         self.btnRegistrar.clicked.connect(self.registrar)
         self.btnEliminar.clicked.connect(self.eliminar)
+        self.btnConsultar.clicked.connect(self.modificar)
+        self.btnActualizar.clicked.connect(self.grabar)
         self.listar()
         self.show()
 
@@ -76,7 +78,7 @@ class VentanaProductos(QtWidgets.QMainWindow):
 
     def eliminar(self):
         if aPro.tamañoArregloProducto() == 0:
-            QtWidgets.QMessageBox.information(self, "Eliminar Cliente", "No existen productos a eliminar",
+            QtWidgets.QMessageBox.information(self, "Eliminar Producto", "No existen productos a eliminar",
                                               QtWidgets.QMessageBox.Ok)
         else:
             fila = self.tblProductos.selectedItems()
@@ -89,3 +91,21 @@ class VentanaProductos(QtWidgets.QMainWindow):
                 self.listar()
             else:
                 QtWidgets.QMessageBox.information(self, "Eliminar Producto", "Ningún producto seleccionado", QtWidgets.QMessageBox.Ok)
+
+    def modificar(self):
+        if aPro.tamañoArregloProducto() == 0:
+            QtWidgets.QMessageBox.information(self, "Modificar Producto", "No se encontraron registros para el DNI ingresado", QtWidgets.QMessageBox.Ok)
+        else:
+            codigo = QtWidgets.QInputDialog.getText(self, "Buscar Productos", "Ingrese el DNI a modificiar")
+            pos = aPro.buscarProducto(codigo)
+            if pos != -1:
+                objProducto = aPro.devolverProducto(pos)
+                self.txtCodigo.setText(objProducto.getCodigo())
+                self.txtNombre.setText(objProducto.getNombre())
+                self.txtDescripcion.setText(objProducto.getDescripcion())
+                self.txtStockMinimo.setText(objProducto.getStockMinimo())
+                self.txtStockActual.setText(objProducto.getStockActual())
+                self.txtPrecioCosto.setText(objProducto.getPrecioCosto())
+                self.txtPrecioVenta.setText(objProducto.getPrecioVenta())
+                self.cboProveedor.setCurrentText(objProducto.getProveedor())
+                self.cboAlmacen.setCurrentText(objProducto.getAlmacen())

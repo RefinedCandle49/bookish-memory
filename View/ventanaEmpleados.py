@@ -11,6 +11,8 @@ class VentanaEmpleados(QtWidgets.QMainWindow):
         uic.loadUi("UI/ventanaEmpleados.ui", self)
         self.btnRegistrar.clicked.connect(self.registrar)
         self.btnEliminar.clicked.connect(self.eliminar)
+        self.btnConsultar.clicked.connect(self.modificar)
+        self.btnActualizar.clicked.connect(self.grabar)
         self.ListarDatos()
         self.show()
 
@@ -76,3 +78,20 @@ class VentanaEmpleados(QtWidgets.QMainWindow):
                 self.ListarDatos()
             else:
                 QtWidgets.QMessageBox.information(self, "Eliminar Empleado", "Ningún empleado seleccionado", QtWidgets.QMessageBox.Ok)
+
+    def modificar(self):
+        if aEmp.tamañoArregloEmpleado() == 0:
+            QtWidgets.QMessageBox.information(self, "Modificar Empleado",
+                                              "No se encontraron registros para el DNI ingresado",
+                                              QtWidgets.QMessageBox.Ok)
+        else:
+            dni, _ = QtWidgets.QInputDialog.getText(self, "Buscar Empleados", "Ingrese el DNI a modificiar")
+            pos = aEmp.buscarEmpleado(dni)
+            if pos != -1:
+                objEmpleado = aEmp.devolverEmpleado(pos)
+                self.txtDni.setText(objEmpleado.getDniEmpleado())
+                self.txtNombres.setText(objEmpleado.getNombresEmpleado())
+                self.txtApellidoPaterno.setText(objEmpleado.getApellidoPaternoEmpleado())
+                self.txtApellidoMaterno.setText(objEmpleado.getApellidoMaternoEmpleado())
+                self.txtDireccion.setText(objEmpleado.getDireccionEmpleado())
+                self.txtTelefono.setText(objEmpleado.getTelefonoEmpleado())
