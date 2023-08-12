@@ -64,7 +64,7 @@ class VentanaClientes(QtWidgets.QMainWindow):
         aCli.adicionaCliente(objCli)
         aCli.grabar()
         self.listar()
-        QtWidgets.QMessageBox.information(self, "Registrar Cliente", "Cliente registracon con éxito", QtWidgets.QMessageBox.Ok)
+        QtWidgets.QMessageBox.information(self, "Registrar Cliente", "Cliente registrado con éxito", QtWidgets.QMessageBox.Ok)
 
     def eliminar(self):
         if aCli.tamañoArregloCliente() == 0:
